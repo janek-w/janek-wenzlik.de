@@ -58,9 +58,10 @@ class _HomeState extends State<Home> {
                         title: Text(
                           headerItems[index].title,
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
                           ),
                         ),
+                        onTap: headerItems[index].onTap,
                       );
               },
               separatorBuilder: (BuildContext context, int index) {

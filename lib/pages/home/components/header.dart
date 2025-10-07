@@ -6,6 +6,7 @@ import 'package:web_portfolio/pages/home/home.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/globals.dart';
 import 'package:web_portfolio/utils/screen_helper.dart';
+import 'package:web_portfolio/utils/theme_toggle_switch.dart';
 
 void scrollToSection(GlobalKey key) {
   Scrollable.ensureVisible(
@@ -55,7 +56,7 @@ class HeaderLogo extends StatelessWidget {
                 TextSpan(
                   text: "J",
                   style: GoogleFonts.oswald(
-                    color: Colors.white,
+                    color: Theme.of(context).textTheme.bodyLarge?.color ?? Colors.white,
                     fontSize: 32.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -63,7 +64,7 @@ class HeaderLogo extends StatelessWidget {
                 TextSpan(
                   text: "W",
                   style: GoogleFonts.oswald(
-                    color: Colors.white,
+                    color: Theme.of(context).textTheme.bodyLarge?.color ?? Colors.white,
                     fontSize: 32.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -93,51 +94,71 @@ class HeaderRow extends StatelessWidget {
       visibleConditions: [
         Condition.largerThan(name: MOBILE),
       ],
-      child: Row(
-        children: headerItems
-            .map(
-              (item) => item.isButton
-                  ? MouseRegion(
-                      cursor: SystemMouseCursors.click,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: kPrimaryColor,
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 5.0),
-                        child: TextButton(
-                          onPressed: item.onTap,
-                          child: Text(
-                            item.title,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                  : MouseRegion(
-                      cursor: SystemMouseCursors.click,
-                      child: Container(
-                        margin: EdgeInsets.only(right: 30.0),
-                        child: GestureDetector(
-                          onTap: item.onTap,
-                          child: Text(
-                            item.title,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13.0,
-                              fontWeight: FontWeight.bold,
-                            ),
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.85,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+        
+          children: [
+            // Regular navigation items (HOME, CV, PORTFOLIO)
+            ...headerItems
+                .where((item) => !item.isButton)
+                .map(
+                  (item) => MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: Container(
+                      margin: EdgeInsets.only(right: 30.0),
+                      child: GestureDetector(
+                        onTap: item.onTap,
+                        child: Text(
+                          item.title,
+                          style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyLarge?.color ?? Colors.white,
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                     ),
-            )
-            .toList(),
+                  ),
+                )
+                .toList(),
+            // Theme toggle switch positioned between Portfolio and Contact
+            const SizedBox(width: 10),
+            Spacer(),
+            ThemeToggleSwitch(),
+            const SizedBox(width: 20),
+            ...headerItems
+                .where((item) => item.isButton)
+                .map(
+                  (item) => MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 8.0),
+                      height: 35.0,
+                      decoration: BoxDecoration(
+                        color: kPrimaryColor,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 0),
+                      child: TextButton(
+                        onPressed: item.onTap,
+                        child: Text(
+                          item.title,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
+          ],
+        ),
       ),
     );
   }
@@ -150,17 +171,17 @@ class Header extends StatelessWidget {
       child: ScreenHelper(
         desktop: Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0),
-          child: buildHeader(),
+          child: buildHeader(context),
         ),
         // We will make this in a bit
-        mobile: buildMobileHeader(),
-        tablet: buildHeader(),
+        mobile: buildMobileHeader(context),
+        tablet: buildHeader(context),
       ),
     );
   }
 
   // mobile header
-  Widget buildMobileHeader() {
+  Widget buildMobileHeader(BuildContext context) {
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -168,18 +189,24 @@ class Header extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             HeaderLogo(),
-            // Restart server to make icons work
-            // Lets make a scaffold key and create a drawer
-            GestureDetector(
-              onTap: () {
-                // Lets open drawer using global key
-                Globals.scaffoldKey.currentState?.openEndDrawer();
-              },
-              child: Icon(
-                Icons.menu,
-                color: Colors.white,
-                size: 28.0,
-              ),
+            Row(
+              children: [
+                ThemeToggleSwitch(),
+                const SizedBox(width: 16),
+                // Restart server to make icons work
+                // Lets make a scaffold key and create a drawer
+                GestureDetector(
+                  onTap: () {
+                    // Lets open drawer using global key
+                    Globals.scaffoldKey.currentState?.openEndDrawer();
+                  },
+                  child: Icon(
+                    Icons.menu,
+                    color: Theme.of(context).textTheme.bodyLarge?.color ?? Colors.white,
+                    size: 28.0,
+                  ),
+                )
+              ],
             )
           ],
         ),
@@ -188,7 +215,7 @@ class Header extends StatelessWidget {
   }
 
   // Lets plan for mobile and smaller width screens
-  Widget buildHeader() {
+  Widget buildHeader(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
