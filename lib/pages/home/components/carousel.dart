@@ -28,9 +28,10 @@ class Carousel extends StatelessWidget {
                 height: carouselContainerHeight,
               ),
               items: List.generate(
-                carouselItems.length,
+                getCarouselItems(context).length,
                 (index) => Builder(
                   builder: (BuildContext context) {
+                    final carouselItems = getCarouselItems(context);
                     return Container(
                       constraints: BoxConstraints(
                         minHeight: carouselContainerHeight,

@@ -5,6 +5,7 @@ import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_portfolio/models/education.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/screen_helper.dart';
+import 'package:web_portfolio/utils/theme_colors.dart';
 
 class CvSection extends StatelessWidget {
   @override
@@ -61,7 +62,7 @@ class CvSection extends StatelessWidget {
                         Text(
                           "EDUCATION",
                           style: GoogleFonts.oswald(
-                            color: Colors.white,
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
                             fontWeight: FontWeight.w900,
                             fontSize: 30.0,
                             height: 1.3,
@@ -77,7 +78,7 @@ class CvSection extends StatelessWidget {
                               child: Text(
                                 "A full stack all round developer that does all the job he needs to do at all times. Actually this is a false statement",
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Theme.of(context).textTheme.bodyLarge?.color,
                                   height: 1.5,
                                 ),
                               ),
@@ -105,7 +106,7 @@ class CvSection extends StatelessWidget {
                                             Text(
                                               education.period,
                                               style: GoogleFonts.oswald(
-                                                color: Colors.white,
+                                                color: Theme.of(context).textTheme.bodyLarge?.color,
                                                 fontWeight: FontWeight.w700,
                                                 fontSize: 20.0,
                                               ),
@@ -118,7 +119,7 @@ class CvSection extends StatelessWidget {
                                               maxLines: 4,
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
-                                                color: kCaptionColor,
+                                                color: ThemeColors.getCaptionColor(context),
                                                 height: 1.5,
                                               ),
                                             ),
@@ -132,7 +133,7 @@ class CvSection extends StatelessWidget {
                                                 child: Text(
                                                   education.linkName,
                                                   style: TextStyle(
-                                                    color: Colors.white,
+                                                    color: Theme.of(context).textTheme.bodyLarge?.color,
                                                   ),
                                                 ),
                                               ),

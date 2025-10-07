@@ -78,7 +78,7 @@ Widget _buildUi(double width, BuildContext context) {
                                       style: GoogleFonts.oswald(
                                         fontSize: 18.0,
                                         fontWeight: FontWeight.w700,
-                                        color: Colors.white,
+                                        color: Theme.of(context).textTheme.bodyLarge?.color,
                                       ),
                                     ),
                                   ],

@@ -49,7 +49,7 @@ class WebsiteAd extends StatelessWidget {
                         Text(
                           "EVOLVING NAGA\nRESORT WEBSITE",
                           style: GoogleFonts.oswald(
-                            color: Colors.white,
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
                             fontWeight: FontWeight.w900,
                             height: 1.3,
                             fontSize: 35.0,

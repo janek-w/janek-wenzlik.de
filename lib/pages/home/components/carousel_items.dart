@@ -3,8 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:web_portfolio/models/carousel_item_model.dart';
 import 'package:web_portfolio/utils/constants.dart';
+import 'package:web_portfolio/utils/theme_colors.dart';
 
-List<CarouselItemModel> carouselItems = List.generate(
+List<CarouselItemModel> getCarouselItems(BuildContext context) => List.generate(
   5,
   (index) => CarouselItemModel(
     text: Container(
@@ -27,7 +28,7 @@ List<CarouselItemModel> carouselItems = List.generate(
           Text(
             "JANEK\nWENZLIK",
             style: GoogleFonts.oswald(
-              color: Colors.white,
+              color: Theme.of(context).textTheme.bodyLarge?.color,
               fontSize: 40.0,
               fontWeight: FontWeight.w900,
               height: 1.3,
@@ -39,7 +40,7 @@ List<CarouselItemModel> carouselItems = List.generate(
           Text(
             "Full-stack developer, based in Darmstadt, Germany",
             style: TextStyle(
-              color: kCaptionColor,
+              color: ThemeColors.getCaptionColor(context),
               fontSize: 15.0,
               height: 1.0,
             ),
@@ -58,7 +59,7 @@ List<CarouselItemModel> carouselItems = List.generate(
                       " Got a project? Let's talk.",
                       style: TextStyle(
                         height: 1.5,
-                        color: Colors.white,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                         fontSize: 15.0,
                       ),
                     ),
