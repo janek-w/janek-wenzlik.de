@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:web_portfolio/models/carousel_item_model.dart';
 import 'package:web_portfolio/utils/constants.dart';
@@ -99,9 +98,35 @@ List<CarouselItemModel> getCarouselItems(BuildContext context) => List.generate(
       ),
     ),
     image: Container(
-      child: Image.asset(
-        "assets/person.png",
-        fit: BoxFit.contain,
+      child: Center(
+        child: Image.asset(
+          "assets/person.png",
+          fit: BoxFit.contain,
+          height: 400,
+          width: 400,
+          errorBuilder: (context, error, stackTrace) {
+            print("Error loading image: $error");
+            return Container(
+              width: 200,
+              height: 200,
+              color: Colors.red.withOpacity(0.3),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.error,
+                    color: Colors.red,
+                    size: 50,
+                  ),
+                  Text(
+                    "Image not found",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     ),
   ),

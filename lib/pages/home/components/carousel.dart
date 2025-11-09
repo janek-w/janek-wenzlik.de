@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_portfolio/pages/home/components/carousel_items.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/screen_helper.dart';
@@ -104,7 +103,7 @@ Widget _buildTablet(BuildContext context, Widget text, Widget image) {
   );
 }
 
-// SMall Screens
+// Small Screens
 
 Widget _buildMobile(BuildContext context, Widget text, Widget image) {
   return Container(
@@ -112,6 +111,17 @@ Widget _buildMobile(BuildContext context, Widget text, Widget image) {
       maxWidth: getMobileMaxWidth(context),
     ),
     width: double.infinity,
-    child: text,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 200,
+          height: 200,
+          child: image,
+        ),
+        SizedBox(height: 20),
+        text,
+      ],
+    ),
   );
 }
