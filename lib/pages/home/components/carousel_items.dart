@@ -5,129 +5,107 @@ import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/theme_colors.dart';
 
 List<CarouselItemModel> getCarouselItems(BuildContext context) => List.generate(
-  5,
-  (index) => CarouselItemModel(
-    text: Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            "MOBILE & WEB DEVELOPER",
-            style: GoogleFonts.oswald(
-              color: kPrimaryColor,
-              fontWeight: FontWeight.w900,
-              fontSize: 16.0,
-            ),
-          ),
-          SizedBox(
-            height: 18.0,
-          ),
-          Text(
-            "JANEK\nWENZLIK",
-            style: GoogleFonts.oswald(
-              color: Theme.of(context).textTheme.bodyLarge?.color,
-              fontSize: 40.0,
-              fontWeight: FontWeight.w900,
-              height: 1.3,
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Text(
-            "Full-stack developer, based in Darmstadt, Germany",
-            style: TextStyle(
-              color: ThemeColors.getCaptionColor(context),
-              fontSize: 15.0,
-              height: 1.0,
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Container(
-            child: Wrap(
-              children: [
-                GestureDetector(
-                  onTap: () {},
-                  child: MouseRegion(
-                    cursor: SystemMouseCursors.click,
+      5,
+      (index) => CarouselItemModel(
+        text: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "MOBILE & WEB DEVELOPER",
+                style: GoogleFonts.oswald(
+                  color: kPrimaryColor,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 16.0,
+                ),
+              ),
+              SizedBox(
+                height: 18.0,
+              ),
+              Text(
+                "JANEK\nWENZLIK",
+                style: GoogleFonts.oswald(
+                  color: Theme.of(context).textTheme.bodyLarge?.color,
+                  fontSize: 40.0,
+                  fontWeight: FontWeight.w900,
+                  height: 1.3,
+                ),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Text(
+                "Full-stack developer, based in Darmstadt, Germany",
+                style: TextStyle(
+                  color: ThemeColors.getCaptionColor(context),
+                  fontSize: 15.0,
+                  height: 1.0,
+                ),
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Container(
+                child: Wrap(
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: Text(
+                          " Got a project? Let's talk.",
+                          style: TextStyle(
+                            height: 1.5,
+                            color: Theme.of(context).textTheme.bodyLarge?.color,
+                            fontSize: 15.0,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 25.0,
+              ),
+              MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: kPrimaryColor,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  height: 48.0,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 28.0,
+                  ),
+                  child: TextButton(
+                    onPressed: () {},
                     child: Text(
-                      " Got a project? Let's talk.",
+                      "GET STARTED",
                       style: TextStyle(
-                        height: 1.5,
-                        color: Theme.of(context).textTheme.bodyLarge?.color,
-                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontSize: 13.0,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                )
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 25.0,
-          ),
-          MouseRegion(
-            cursor: SystemMouseCursors.click,
-            child: Container(
-              decoration: BoxDecoration(
-                color: kPrimaryColor,
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              height: 48.0,
-              padding: EdgeInsets.symmetric(
-                horizontal: 28.0,
-              ),
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  "GET STARTED",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.bold,
-                  ),
                 ),
-              ),
+              )
+            ],
+          ),
+        ),
+        image: Container(
+          child: Center(
+            child: Image.asset(
+              'assets/person.png',
+              fit: BoxFit.fitWidth,
+              height: 400,
+              width: 400,
             ),
-          )
-        ],
-      ),
-    ),
-    image: Container(
-      child: Center(
-        child: Image.asset(
-          "assets/person.png",
-          fit: BoxFit.contain,
-          height: 400,
-          width: 400,
-          errorBuilder: (context, error, stackTrace) {
-            print("Error loading image: $error");
-            return Container(
-              width: 200,
-              height: 200,
-              color: Colors.red.withOpacity(0.3),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.error,
-                    color: Colors.red,
-                    size: 50,
-                  ),
-                  Text(
-                    "Image not found",
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ],
-              ),
-            );
-          },
+          ),
         ),
       ),
-    ),
-  ),
-);
+    );

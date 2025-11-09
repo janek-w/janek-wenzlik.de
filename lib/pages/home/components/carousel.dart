@@ -112,7 +112,8 @@ Widget _buildMobile(BuildContext context, Widget text, Widget image) {
     ),
     width: double.infinity,
     child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: 200,
