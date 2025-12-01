@@ -8,20 +8,17 @@ final List<FooterItem> footerItems = [
   FooterItem(
     iconPath: "assets/phone.png",
     title: "PHONE",
-    text1: "+1 618-689-9604",
-    text2: "+1 781-689-9632",
+    text1: "+49 1579 909 2887",
   ),
   FooterItem(
     iconPath: "assets/email.png",
     title: "EMAIL",
-    text1: "hello@example.com",
-    text2: "info@flutterpanda.com",
+    text1: "janek.wenzlik@gmail.com",
   ),
   FooterItem(
     iconPath: "assets/whatsapp.png",
     title: "WHATSAPP",
-    text1: "+234 901-134-0095",
-    text2: "+234 901-134-0095",
+    text1: "+49 1579 909 2887",
   )
 ];
 
@@ -45,7 +42,7 @@ Widget _buildUi(double width, BuildContext context) {
       child: LayoutBuilder(
         builder: (context, constraints) {
           return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 50.0),
@@ -97,12 +94,6 @@ Widget _buildUi(double width, BuildContext context) {
                                           height: 1.8,
                                         ),
                                       ),
-                                      TextSpan(
-                                        text: "${footerItem.text2}\n",
-                                        style: TextStyle(
-                                          color: kCaptionColor,
-                                        ),
-                                      )
                                     ],
                                   ),
                                 )

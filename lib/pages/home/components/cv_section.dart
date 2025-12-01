@@ -170,14 +170,14 @@ final List<Education> educationList = [
   ),
   Education(
     description:
-        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,",
+        "Bachelor of Science in Business Information Systems",
     linkName: "Technische Universität Darmstadt",
-    period: "2018 - 2019",
+    period: "2018 - 2024",
   ),
   Education(
     description:
-        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.",
-    linkName: "Technische Universität Darmstadt",
-    period: "2017 - 2018",
+        "Abitur (German high school diploma)",
+    linkName: "Augustiner Schule Friedberg",
+    period: "2018",
   ),
 ];
