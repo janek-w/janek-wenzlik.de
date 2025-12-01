@@ -3,7 +3,8 @@ import 'package:web_portfolio/pages/home/components/carousel.dart';
 import 'package:web_portfolio/pages/home/components/cv_section.dart';
 import 'package:web_portfolio/pages/home/components/footer.dart';
 import 'package:web_portfolio/pages/home/components/header.dart';
-import 'package:web_portfolio/pages/home/components/ios_app_ad.dart';
+import 'package:web_portfolio/pages/home/components/barky_project.dart';
+import 'package:web_portfolio/pages/home/components/lithire_project.dart';
 import 'package:web_portfolio/pages/home/components/website_ad.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/globals.dart';
@@ -95,7 +96,8 @@ class _HomeState extends State<Home> {
                         height: 20.0,
                       ),
                       Container(key: CVSectionKey, child: CvSection()),
-                      Container(key: PortfolioSectionKey, child : IosAppAd()),
+                      Container(key: PortfolioSectionKey, child : BarkyProject()),
+                      Container(child : LithireProject()),
                       SizedBox(
                         height: 70.0,
                       ),

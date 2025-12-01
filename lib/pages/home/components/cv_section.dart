@@ -164,14 +164,14 @@ class CvSection extends StatelessWidget {
 final List<Education> educationList = [
   Education(
     description:
-        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.",
-    linkName: "Augustiner Schule Friedberg",
-    period: "2019 - PRESENT",
+        "Master of Science: Computer Science and Management",
+    linkName: "Technical University of Darmstadt",
+    period: "2024 - PRESENT",
   ),
   Education(
     description:
-        "Bachelor of Science in Business Information Systems",
-    linkName: "Technische Universität Darmstadt",
+        "Bachelor of Science: Business Information Systems",
+    linkName: "Technical University of Darmstadt",
     period: "2018 - 2024",
   ),
   Education(
